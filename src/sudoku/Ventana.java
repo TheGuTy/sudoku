@@ -554,10 +554,10 @@ public class Ventana extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			String mensaje = "integrantes:\n"+
-							 "Agra Federico - Loza Carlos\n"+
+			String mensaje = "Integrante:\n"+
+							 "Gutierrez, Nestor Gabriel\n"+
 							 "Lógica para Ciencias de la Computación\n"+
-							 "Copyright© 2014";
+							 "2017";
 			JOptionPane.showMessageDialog(null, mensaje);
 			
 		}
@@ -578,7 +578,7 @@ public class Ventana extends JFrame {
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "Tu sudoku es horrendo. arreglalo!", "Mal", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Hay algo que no está bien. arreglalo!", "Mal", JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}
@@ -593,6 +593,7 @@ public class Ventana extends JFrame {
 			
 			String tablaAct = "resolver(["+getTabla()+"],Salida)";
 			Query verificar = new Query(tablaAct);
+			
 			if (verificar.hasSolution())
 			{
 				int i = 0;
@@ -715,7 +716,7 @@ public class Ventana extends JFrame {
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "No hay solucion para esta configuracion.");
+				JOptionPane.showMessageDialog(null, "No hay solución para esta configuración.");
 			}
 			
 		}
@@ -733,7 +734,6 @@ public class Ventana extends JFrame {
 		}
 
 		public void keyPressed(KeyEvent arg0) {
-			// TODO Auto-generated method stub
 			
 		}
 
@@ -847,7 +847,7 @@ public class Ventana extends JFrame {
 	
 	private void cargarLogica() {
 		
-		String consulta = "consult('logicasudoku.pl')";
+		String consulta = "consult('logicsudoku.pl')";
 		Query cargarLogica = new Query(consulta);
 		
 		if (!cargarLogica.hasSolution()) {
