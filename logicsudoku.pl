@@ -21,7 +21,7 @@ verificando en cada fila columna y subdivision no se repitan
 las cifras del 1 al 9
 
  input:
- 	@Tabblero: una lista de 81 componentes, que eventualmente
+ 	@Tablero: una lista de 81 componentes, que eventualmente
  	representa la matriz de 9x9 de un tablero de sudoku, esta
  	lista ingresa previamente cargada
  output:
@@ -86,24 +86,25 @@ input:
 	@Tablero: lista de 81 coponentes con algunas de sus componentes completas el
 	cual representa la matriz del sudoku a resolver
 output:
-	@salida: una lista de 81 componentes con, en caso de existir, la solucion
-	al sudoku ingrasado
-	False: en caso de que el sudoku propuesto no posea solucion alguna
+	@salida: una lista de 81 componentes con, en caso de existir, la solución del
+	al sudoku ingresados
+	False: en caso de que el sudoku propuesto no posea solución alguna
 */
 resolver(Tablero, Salida):-
 
 	Salida=Tablero,
 	comprobar(Salida),
 	rellenar(Salida).
+	/*comprobar(Salida).*/
 
 
 /**
- predicado que verifica una lista corroborando que sus componentes sean todos
+Predicado que verifica una lista corroborando que sus componentes sean todos
 distintos, si bien este metodo podria no existir y usarse directaente el metodo
 todosDiferentes/1, se conserva para no modificar la interfaz grafica en java que
 ya se verifico su correcto funcionamiento.
 
-imput:
+input:
 	@L: lista a la cual se debera corroborar que sus componentes sean distintas
 output:
 	True: si la lista posee todos sus componentes sos distitas
@@ -112,12 +113,30 @@ output:
 validar(L) :-
 	todosDiferentes(L).
 
+/**
+Predicado para rellenar el tablero con elementos del uno al nueve
+
+input:
+	@[L|Ls]: Tablero con algunas de sus componentes sin instanciar.
+ouput:
+	Tablero con todas sus componentes instanciadas con nÃºmeros del 1 al 9.
+*/
 rellenar([]).
 rellenar([L|Ls]):-
 	miembro(L, [1,2,3,4,5,6,7,8,9]),
 	rellenar(Ls).
 
+/**
+Predicado utilizado para que la primer componente se instancie con alguno
+de los elementos de la lista del segundo parÃ¡metro.
 
+input:
+	@X: Elemento a la cual se le va a instanciar un elemento de la lista
+	@[Y|Ys]: Lista a la cual se quiere descomponer en elementos individuales.
+output:
+	True: Si X se puede instanciar con algÃºn elemento de la lista.
+	False: Caso contrario, cuando la lista ingresada es vacía.
+*/
 miembro(X, [Y|_]) :-
 	X = Y.
 miembro(X, [_|Ys]) :-
