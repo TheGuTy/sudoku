@@ -16,17 +16,17 @@ contrario se muestra tal efecto.
 */
 
 /**
-metodo que comprueba si un tablero esta correctamente armado
-verificando en cada fila columna y subdivision no se repitan
+Método que comprueba si un tablero está correctamente armado
+verificando en cada fila columna y subdivisión no se repitan
 las cifras del 1 al 9
 
  input:
- 	@Tablero: una lista de 81 componentes, que eventualmente
- 	representa la matriz de 9x9 de un tablero de sudoku, esta
- 	lista ingresa previamente cargada
+     @Tablero: una lista de 81 componentes, que eventualmente
+     representa la matriz de 9x9 de un tablero de sudoku, esta
+     lista ingresa previamente cargada
  output:
- 	True si la lista es correcta
- 	False caso contrario
+     True si la lista es correcta
+     False caso contrario
 */
 comprobar(Tablero):-
 	/*Establezco formato*/
@@ -64,7 +64,7 @@ comprobar(Tablero):-
 	validar([A8,B8,C8,D8,E8,F8,G8,H8,I8]),
 	validar([A9,B9,C9,D9,E9,F9,G9,H9,I9]),
 
-	/*comprobar las cuadriculas*/
+	/*comprobar las subdivisiones*/
 	validar([A1,A2,A3,B1,B2,B3,C1,C2,C3]),
 	validar([A4,A5,A6,B4,B5,B6,C4,C5,C6]),
 	validar([A7,A8,A9,B7,B8,B9,C7,C8,C9]),
@@ -76,40 +76,39 @@ comprobar(Tablero):-
 	validar([G7,G8,G9,H7,H8,H9,I7,I8,I9]).
 
 /**
-predicado que resuelve un tablero de sudoku a partir de una par de cifras
-ya cargadas, el metoco comprobar verifica que las cifras no posean conflito
-y llamada al metodo lavelear/1 para que asigne valores a la lista, el proceso
+Predicado que resuelve un tablero de sudoku a partir de una par de cifras
+ya cargadas, el método comprobar verifica que las cifras no posean conflicto
+y llama al método rellenar/1 para que asigne valores a la lista, el proceso
 funciona a fuerza bruta, probando combinaciones hasta dar con una que satisface
-la condicion de comprobar/1.
+la condición de comprobar/1.
 
 input:
-	@Tablero: lista de 81 coponentes con algunas de sus componentes completas el
+	@Tablero: lista de 81 componentes con algunas de sus componentes completas el
 	cual representa la matriz del sudoku a resolver
 output:
-	@salida: una lista de 81 componentes con, en caso de existir, la soluci�n del
-	al sudoku ingresados
-	False: en caso de que el sudoku propuesto no posea soluci�n alguna
+  @salida: una lista de 81 componentes con, en caso de existir, la solución del
+  al sudoku ingresados
+  False: en caso de que el sudoku propuesto no posea solución alguna
 */
 resolver(Tablero, Salida):-
 
 	Salida=Tablero,
 	comprobar(Salida),
 	rellenar(Salida).
-	/*comprobar(Salida).*/
 
 
-/**
-Predicado que verifica una lista corroborando que sus componentes sean todos
-distintos, si bien este metodo podria no existir y usarse directaente el metodo
-todosDiferentes/1, se conserva para no modificar la interfaz grafica en java que
-ya se verifico su correcto funcionamiento.
+	/**
+	Predicado que verifica una lista corroborando que sus componentes sean todos
+	distintos, si bien este metodo podria no existir y usarse directamente el método
+	todosDiferentes/1, se conserva para no modificar la interfaz gráfica en java que
+	ya se verificó su correcto funcionamiento.
 
-input:
-	@L: lista a la cual se debera corroborar que sus componentes sean distintas
-output:
-	True: si la lista posee todos sus componentes sos distitas
-	False: caso contrario
-*/
+	input:
+	    @L: lista a la cual se deberá corroborar que sus componentes sean distintas
+	output:
+	    True: si la lista posee todos sus componentes distintos
+	    False: caso contrario
+	*/
 validar(L) :-
 	todosDiferentes(L).
 
@@ -135,7 +134,7 @@ input:
 	@[Y|Ys]: Lista a la cual se quiere descomponer en elementos individuales.
 output:
 	True: Si X se puede instanciar con algún elemento de la lista.
-	False: Caso contrario, cuando la lista ingresada es vac�a.
+	False: Caso contrario, cuando la lista ingresada es vacía.
 */
 miembro(X, [Y|_]) :-
 	X = Y.
@@ -144,61 +143,59 @@ miembro(X, [_|Ys]) :-
 
 
 
-/**
-predicado que verifica si dos metas-variables son distintas, este predicado hace uso del
-predicado dif/2 de la libreria dif que se autocarga con prolog, estre predicado proporciona
-una restricción que indica que A y B son términos diferentes. Si A y B no pueden unificar,
-dif/2 tiene éxito determinista. Si A y B son idénticos falla inmediatamente, y, por último,
-si A y B se pueden unificar, las metas se retrasan, impidiendo a A y B a ser iguales.
-Mas info: http://www.swi-prolog.org/pldoc/man?predicate=dif/2
+	/**
+	Predicado que verifica si dos metas-variables son distintas, este predicado hace uso del
+	predicado dif/2 de la librería dif que se autocarga con prolog, este predicado proporciona
+	una restricción que indica que A y B son términos diferentes. Si A y B no pueden unificar,
+	dif/2 tiene éxito determinista. Si A y B son idénticos falla inmediatamente, y, por último,
+	si A y B se pueden unificar, las metas se retrasan, impidiendo a A y B a ser iguales.
+	Mas info: http://www.swi-prolog.org/pldoc/man?predicate=dif/2
 
-imput:
-	@X, @y: variables con las cuales se comprobara la igualdad y posterior restricción
-output:
-	False: si ambas metas son iguales
-	True: caso contrario
-*/
+	input:
+	    @X, @y: variables con las cuales se comprobará la igualdad y posterior restricción
+	output:
+	    False: si ambas metas son iguales
+	    True: caso contrario
+	*/
 diferentes(X,Y):-
 	dif(X,Y).
 
-/*
-Predicado recursivo que verifica que todas las componentes de una lista sean distintos
-en el caso base una lista es vacia, lo cual marca como verdader que cumple la condicion,
-en el caso recursivo verifico que el primer elemento sea distitnto al resto de la lista
-y luego verifico que el resto de la lista posea todas sus componentes distintas
+	/*
+	Predicado recursivo que verifica que todas las componentes de una lista sean
+	distintos en el caso base una lista es vacía, lo cual marca como verdadero que
+	cumple la condición, en el caso recursivo verifico que el primer elemento sea
+	distinto al resto de la lista y luego verifico que el resto de la lista posea
+	todas sus componentes distintas.
 
-input:
-	@[] lista vacia
-	@[L|Ls] lista donde L es la cabeza de la lista y Ls es el resto de la lista
-output:
-	True: si las componestes son todas distintas
-	False: caso contrario
-*/
+	input:
+	    @[] lista vacía
+	    @[L|Ls] lista donde L es la cabeza de la lista y Ls es el resto de la lista
+	output:
+	    True: si las componentes son todas distintas
+	    False: caso contrario
+	*/
 todosDiferentes([]).
 todosDiferentes([L|Ls]):-
 	noPertenece(L,Ls),
 	todosDiferentes(Ls).
 
+	/**
+	Predicado que chequea si el elemento X NO se encuentra en la lista.
+	Predicado recursivo que corrobora que un elemento dado no se encuentre en una
+	lista también dada. En el caso base verefico que un elemento y una lista vacías,
+	lo cual marca como verdadero cumpliendo la condición, y en el caso recursivo se
+	verifica la desigualdad entre el elemento X dado y la cabeza Y de la lista.
+	Luego se verifica que el elemento dado sea distinto al resto de la lista dada.
+
+	input:
+	    @X: Elemento a comparar si no está en la lista.
+	    @[Y|Ys]: Lista a chequear si no se encuentra el elemento X
+
+	output:
+	    true: si X no se encuentra en la lista
+	    false: caso contrario
+	*/
 noPertenece(_, []).
 noPertenece(X, [Y|Ys]) :-
 	diferentes(X,Y),
   noPertenece(X, Ys).
-
-
-/**
-Predicado recursivo que corrobora que un elemento dado no se encuentre en una list
-tambien dada, en el caso base ferefico que un elemto y una lista vacias, lo cual marca
-como verdadero cumpliendo la condicion, y en el caso recursivo se verifica la desigualdad
-entre el elemento X dado y la cabeza Y de la lista, luego se verifica que el elemento dado
-sea distinto al resto de la lista dada
-
-input:
-	@X: elemento dado que no deve existir en la lista
-	@[L|Ls]: lista donde se realizara de prueva, L cabeza de la lista, Ls resto de la lista
-	@_: elemento sin considerar contenido
-	@[]: lista vacia
-*/
-diferentePrimero(_,[]).
-diferentePrimero(X,[Y|Ls]):-
-	diferentes(X,Y),
-	diferentePrimero(X,Ls).
