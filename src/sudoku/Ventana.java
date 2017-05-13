@@ -34,10 +34,10 @@ public class Ventana extends JFrame {
 	private JPanel jPanel1;
 	private JPanel jPanel2;
 	
-	protected Color rojito = new Color(250, 128, 114);
-	protected Color azul = new Color(173,216,230);
-	protected Color azulcito = new Color(220,220,250);
-	protected Color verdecito = new Color(50,205,50);
+	protected Color rojo = new Color(255, 51, 51);
+	protected Color violeta = new Color(170,170,255);
+	protected Color marron = new Color(242,200,145);
+	protected Color verde = new Color(170,255,170);
 	protected Font fuente = new Font("Dialog", Font.BOLD, 36);
 	
 	protected JTextField[][] tabla;
@@ -56,7 +56,7 @@ public class Ventana extends JFrame {
 	
 	public Ventana() {
 		
-		super("Sudoku");
+		super("Sudoku 2017");
 		
 		cargarLogica();
 		initGUI();
@@ -90,7 +90,7 @@ public class Ventana extends JFrame {
 					{
 						tabla[i][j] = new JTextField("");
 						tabla[i][j].setEditable(true);
-						tabla[i][j].setBackground(azulcito);
+						tabla[i][j].setBackground(marron);
 						rtf = new RestrictedTextField(tabla[i][j]);
 						rtf.setLimit(1);
 						rtf.setOnlyNums(true);
@@ -180,8 +180,7 @@ public class Ventana extends JFrame {
 			
 			
 			pack();
-		} catch (Exception e) {
-		    //add your error handling code here
+		} catch (Exception e) {		    
 			e.printStackTrace();
 		}
 		
@@ -258,7 +257,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -273,7 +272,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -288,7 +287,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -303,7 +302,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -318,7 +317,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -333,7 +332,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -348,7 +347,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -363,7 +362,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -378,7 +377,7 @@ public class Ventana extends JFrame {
 				tabla[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tabla[i][j].setOpaque(true);
 				tabla[i][j].setSize(50, 50);
-				tabla[i][j].setBackground(azul);
+				tabla[i][j].setBackground(violeta);
 
 				jPanel1.add(tabla[i][j], new GridBagConstraints(j, i, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(0, 0, 0, 0), 0, 0));
 				j++;
@@ -462,7 +461,7 @@ public class Ventana extends JFrame {
 				{
 					tabla[i][j].setText("");
 					tabla[i][j].setEditable(true);
-					tabla[i][j].setBackground(azulcito);
+					tabla[i][j].setBackground(marron);
 				}
 			}
 		}
@@ -554,9 +553,9 @@ public class Ventana extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			String mensaje = "Integrantes:\n"+
-							 "Gutierrez, Gabriel\n"+
+			String mensaje = "Integrantes:\n"+							 
 							 "Mercado, Santiago\n"+
+							 "Gutierrez, Gabriel\n"+
 							 "Lógica para Ciencias de la Computación\n"+
 							 "2017";
 			JOptionPane.showMessageDialog(null, mensaje);
@@ -579,7 +578,7 @@ public class Ventana extends JFrame {
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(null, "Hay algo que no está bien. arreglalo!", "Mal", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Hay algo que no está bien. Arreglalo!", "Mal", JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}
@@ -622,7 +621,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("1");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -632,7 +631,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("2");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -642,7 +641,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("3");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -652,7 +651,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("4");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -662,7 +661,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("5");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -672,7 +671,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("6");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -682,7 +681,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("7");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -692,7 +691,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("8");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -702,7 +701,7 @@ public class Ventana extends JFrame {
 								if (tabla[i][j].isEditable())
 								{
 									tabla[i][j].setText("9");
-									tabla[i][j].setBackground(verdecito);
+									tabla[i][j].setBackground(verde);
 								}
 								j++;
 								break;
@@ -773,11 +772,11 @@ public class Ventana extends JFrame {
 			Query validar = new Query(t2);
 			if (validar.hasSolution())
 			{
-				celda.setBackground(azulcito);
+				celda.setBackground(marron);
 			}
 			else
 			{
-				celda.setBackground(rojito);
+				celda.setBackground(rojo);
 			}
 			
 		}
