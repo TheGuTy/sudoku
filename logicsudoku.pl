@@ -1,7 +1,9 @@
 /**
 Lógica para Ciencias de la Computación 2017
 
-Autor: GUTIERREZ, Nestor Gabriel LU: 91619
+Autores:
+	GUTIERREZ, Gabriel LU: 91619
+	MERCADO, Santiago LU: 103500
 
 Lógica en prolog para jugar una partida de sudoku.
 
@@ -17,16 +19,16 @@ contrario se muestra tal efecto.
 
 /**
 Método que comprueba si un tablero está correctamente armado
-verificando en cada fila columna y subdivisión no se repitan
-las cifras del 1 al 9
+verificando que en cada fila, columna y región, no se repitan
+las cifras del 1 al 9.
 
- input:
-     @Tablero: una lista de 81 componentes, que eventualmente
-     representa la matriz de 9x9 de un tablero de sudoku, esta
-     lista ingresa previamente cargada
- output:
-     True si la lista es correcta
-     False caso contrario
+	input:
+  	@Tablero: una lista de 81 componentes, que eventualmente
+    representa la matriz de 9x9 de un tablero de sudoku, esta
+    lista ingresa previamente cargada
+ 	output:
+  	True si la lista es correcta
+    False caso contrario
 */
 comprobar(Tablero):-
 	/*Establezco formato*/
@@ -76,6 +78,23 @@ comprobar(Tablero):-
 	validar([G7,G8,G9,H7,H8,H9,I7,I8,I9]).
 
 /**
+Predicado que verifica una lista corroborando que sus componentes sean todos
+distintos, si bien este método podría no existir y usarse directamente el método
+todosDiferentes/1, se conserva para no modificar la interfaz gráfica en java que
+ya se verificó su correcto funcionamiento.
+
+	input:
+		@Lista: lista a la cual se deberá corroborar que sus componentes sean
+		distintas
+
+	output:
+		True: si la lista posee todos sus componentes distintos
+		False: caso contrario
+*/
+validar(Lista) :-
+	todosDiferentes(Lista).
+
+/**
 Predicado que resuelve un tablero de sudoku a partir de una par de cifras
 ya cargadas, el método comprobar verifica que las cifras no posean conflicto
 y llama al método rellenar/1 para que asigne valores a la lista, el proceso
@@ -95,22 +114,6 @@ resolver(Tablero, Salida):-
 	Salida=Tablero,
 	comprobar(Salida),
 	rellenar(Salida).
-
-
-	/**
-	Predicado que verifica una lista corroborando que sus componentes sean todos
-	distintos, si bien este metodo podria no existir y usarse directamente el método
-	todosDiferentes/1, se conserva para no modificar la interfaz gráfica en java que
-	ya se verificó su correcto funcionamiento.
-
-	input:
-	    @L: lista a la cual se deberá corroborar que sus componentes sean distintas
-	output:
-	    True: si la lista posee todos sus componentes distintos
-	    False: caso contrario
-	*/
-validar(L) :-
-	todosDiferentes(L).
 
 /**
 Predicado para rellenar el tablero con elementos del uno al nueve
@@ -143,29 +146,30 @@ miembro(X, [_|Ys]) :-
 
 
 
-	/**
-	Predicado que verifica si dos metas-variables son distintas, este predicado hace uso del
-	predicado dif/2 de la librería dif que se autocarga con prolog, este predicado proporciona
-	una restricción que indica que A y B son términos diferentes. Si A y B no pueden unificar,
-	dif/2 tiene éxito determinista. Si A y B son idénticos falla inmediatamente, y, por último,
-	si A y B se pueden unificar, las metas se retrasan, impidiendo a A y B a ser iguales.
-	Mas info: http://www.swi-prolog.org/pldoc/man?predicate=dif/2
+/**
+Predicado que verifica si dos metas-variables son distintas. Este predicado hace
+uso del predicado dif/2 de la librería dif que se autocarga con prolog. Este
+predicado proporciona una restricción que indica que A y B son términos
+diferentes. Si A y B no pueden unificar, dif/2 tiene éxito determinista. Si A y
+B son idénticos falla inmediatamente, y por último, si A y B se pueden unificar,
+las metas se retrasan, impidiendo a A y B a ser iguales.
+Mas info: http://www.swi-prolog.org/pldoc/man?predicate=dif/2
 
 	input:
-	    @X, @y: variables con las cuales se comprobará la igualdad y posterior restricción
+		@X, @y: variables con las cuales se comprobará la igualdad y posterior restricción
 	output:
-	    False: si ambas metas son iguales
-	    True: caso contrario
-	*/
+	  False: si ambas metas son iguales
+	  True: caso contrario
+*/
 diferentes(X,Y):-
 	dif(X,Y).
 
-	/*
-	Predicado recursivo que verifica que todas las componentes de una lista sean
-	distintos en el caso base una lista es vacía, lo cual marca como verdadero que
-	cumple la condición, en el caso recursivo verifico que el primer elemento sea
-	distinto al resto de la lista y luego verifico que el resto de la lista posea
-	todas sus componentes distintas.
+	/**
+Predicado recursivo que verifica que todas las componentes de una lista sean
+distintos. En el caso base una lista es vacía, lo cual marca como verdadero que
+cumple la condición. Wn el caso recursivo verifico que el primer elemento sea
+distinto al resto de la lista y luego verifico que el resto de la lista posea
+todas sus componentes distintas.
 
 	input:
 	    @[] lista vacía
@@ -179,21 +183,19 @@ todosDiferentes([L|Ls]):-
 	noPertenece(L,Ls),
 	todosDiferentes(Ls).
 
-	/**
-	Predicado que chequea si el elemento X NO se encuentra en la lista.
-	Predicado recursivo que corrobora que un elemento dado no se encuentre en una
-	lista también dada. En el caso base verefico que un elemento y una lista vacías,
-	lo cual marca como verdadero cumpliendo la condición, y en el caso recursivo se
-	verifica la desigualdad entre el elemento X dado y la cabeza Y de la lista.
-	Luego se verifica que el elemento dado sea distinto al resto de la lista dada.
+/**
+Predicado recursivo que corrobora que un elemento dado NO se encuentre en una
+lista también dada. En el caso base verefico un elemento y una lista vacías,
+lo cual marca como verdadero cumpliendo la condición. En el caso recursivo se
+verifica la desigualdad entre el elemento X dado y la cabeza Y de la lista.
+Luego se verifica que el elemento dado sea distinto al resto de la lista dada.
 
 	input:
-	    @X: Elemento a comparar si no está en la lista.
-	    @[Y|Ys]: Lista a chequear si no se encuentra el elemento X
-
+		@X: Elemento a comparar si no está en la lista.
+	  @[Y|Ys]: Lista a chequear si no se encuentra el elemento X
 	output:
-	    true: si X no se encuentra en la lista
-	    false: caso contrario
+	  true: si X no se encuentra en la lista
+	  false: caso contrario
 	*/
 noPertenece(_, []).
 noPertenece(X, [Y|Ys]) :-

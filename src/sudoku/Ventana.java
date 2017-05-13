@@ -554,8 +554,9 @@ public class Ventana extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			String mensaje = "Integrante:\n"+
-							 "Gutierrez, Nestor Gabriel\n"+
+			String mensaje = "Integrantes:\n"+
+							 "Gutierrez, Gabriel\n"+
+							 "Mercado, Santiago\n"+
 							 "Lógica para Ciencias de la Computación\n"+
 							 "2017";
 			JOptionPane.showMessageDialog(null, mensaje);
