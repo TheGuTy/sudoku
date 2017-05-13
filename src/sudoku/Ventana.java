@@ -130,7 +130,7 @@ public class Ventana extends JFrame {
 				{
 					JMenu jMenu1 = new JMenu();
 					barra.add(jMenu1);
-					jMenu1.setText("Archivo");
+					jMenu1.setText("Opciones");
 					{
 						JMenu jMenu3 = new JMenu();
 						jMenu1.add(jMenu3);
@@ -167,7 +167,7 @@ public class Ventana extends JFrame {
 				{
 					JMenu jMenu2 = new JMenu();
 					barra.add(jMenu2);
-					jMenu2.setText("Ayuda");
+					jMenu2.setText("Acerca de");
 					{
 						JMenuItem jMenuItem3 = new JMenuItem();
 						jMenu2.add(jMenuItem3);

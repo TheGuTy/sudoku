@@ -2,8 +2,8 @@
 Lógica para Ciencias de la Computación 2017
 
 Autores:
-	GUTIERREZ, Gabriel LU: 91619
 	MERCADO, Santiago LU: 103500
+	GUTIERREZ, Gabriel LU: 91619
 
 Lógica en prolog para jugar una partida de sudoku.
 
