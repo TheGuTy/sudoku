@@ -105,7 +105,7 @@ input:
 	@Tablero: lista de 81 componentes con algunas de sus componentes completas el
 	cual representa la matriz del sudoku a resolver
 output:
-  @salida: una lista de 81 componentes con, en caso de existir, la solución del
+  @Salida: una lista de 81 componentes con, en caso de existir, la solución del
   al sudoku ingresados
   False: en caso de que el sudoku propuesto no posea solución alguna
 */
